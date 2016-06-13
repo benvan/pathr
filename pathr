@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# simple tool to allow additions to $PATH via shell function pathr
+
+# n.b. the *actual* reason I made this was so that I can recreate my PATH without having to invoke zshrc
+# or bashrc - the advantage being that I can run my window manager with the same path as my shell
+# For this reason, all my path config lives in ~/.pathrc and consists of calls to pathr()
+
+pathr(){
+  if [ ! -e "$1" ]; then
+    echo "WARNING: pathr encountered non-existent directory [$1]"
+  fi
+  echo $* | grep -- --pre > /dev/null
+  if [ $? ]; then
+    export PATH=$1:$PATH
+  else
+    export PATH=$PATH:$1
+  fi
+}
