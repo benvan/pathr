@@ -4,7 +4,7 @@ Simple `$PATH` manipulation for your bashrc
 # Usage
 
 ```bash
-# in your .basrhc:
+# in your rc file:
 source /path/to/pathr
 
 # appends to $PATH
